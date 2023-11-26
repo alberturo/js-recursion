@@ -52,7 +52,25 @@ let range = function (x, y) {};
 // 8^2 = 8 x 8 = 64. Here, 8 is the base and 2 is the exponent.
 // exponent(4,3); // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
-let exponent = function (base, exp) {};
+let exponent = function (base, exp, count = 0) {
+  let total = 0;
+  if (power > 0) {
+    if (count < power) {
+      count++;
+      total = num ** power;
+      exponent(num, power, count);
+    }
+    return total;
+  }
+  if (power < 0) {
+    if (count > power) {
+      count--;
+      total = 1 / num ** -power;
+      exponent(num, power, count);
+    }
+    return total;
+  }
+};
 
 // 8. Determine if a number is a power of two.
 // powerOfTwo(1); // true
